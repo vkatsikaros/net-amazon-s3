@@ -13,7 +13,7 @@ use IO::File 1.14;
 # ABSTRACT: An easy-to-use Amazon S3 client object
 
 enum 'AclShort' =>
-    qw(private public-read public-read-write authenticated-read);
+    [ qw(private public-read public-read-write authenticated-read) ];
 
 enum 'StorageClass' =>
     qw(standard reduced_redundancy);
