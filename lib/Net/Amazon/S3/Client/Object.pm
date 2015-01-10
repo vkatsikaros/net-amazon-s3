@@ -64,15 +64,20 @@ __PACKAGE__->meta->make_immutable;
 sub exists {
     my $self = shift;
 
-    my $http_request = Net::Amazon::S3::Request::GetObject->new(
+    my $http_response = $self->head;
+    return $http_response->code == 200 ? 1 : 0;
+}
+
+sub head {
+    my $self = shift;
+
+    my $http_request = Net::Amazon::S3::Request::HeadObject->new(
         s3     => $self->client->s3,
         bucket => $self->bucket->name,
         key    => $self->key,
-        method => 'HEAD',
     )->http_request;
 
-    my $http_response = $self->client->_send_request_raw($http_request);
-    return $http_response->code == 200 ? 1 : 0;
+    return $self->client->_send_request_raw($http_request);
 }
 
 sub _get {

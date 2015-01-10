@@ -121,6 +121,7 @@ use Net::Amazon::S3::Request::GetBucketAccessControl;
 use Net::Amazon::S3::Request::GetBucketLocationConstraint;
 use Net::Amazon::S3::Request::GetObject;
 use Net::Amazon::S3::Request::GetObjectAccessControl;
+use Net::Amazon::S3::Request::HeadObject;
 use Net::Amazon::S3::Request::InitiateMultipartUpload;
 use Net::Amazon::S3::Request::ListAllMyBuckets;
 use Net::Amazon::S3::Request::ListBucket;
